@@ -1,0 +1,58 @@
+#conversion dictionary
+conversions = {
+    ('km', 'mi'): 0.6214,
+    ('mi', 'km'): 1.609,
+    ('m', 'km'): 0.001,
+    ('km', 'm'): 1000,
+    ('cm', 'm'): 0.01,
+    ('m', 'cm'): 100,
+}
+
+
+def unit_converter():
+  print('Currently, this converter only works for km/mi, m/km, and m/cm')
+  #ask user for first unit
+  
+  while True:
+    unit1 = input('Type the unit you want to convert from: ').strip().lower()
+    if unit1 in ['km', 'mi', 'm', 'cm']:
+      break
+    else:
+      print('\nYou have to type in one of the units above')
+
+  #ask user for second unit
+  while True:
+    unit2 = input('Type the unit you want to convert to : ').strip().lower()
+    if unit2 in ['km', 'mi', 'm', 'cm']:
+      break
+    else:
+      print('\nYou have to type in one of the units above')
+    
+
+   #ask for length in terms of first unit
+  
+  while True:
+    length = input(f'And what is the length of the distance in {unit1}: ').strip()
+    try:
+      length = float(length)
+      break
+    except:
+      print("\nThat's not a length")
+    
+  #perform conversion
+  if (unit1, unit2) in conversions:
+    converted_length = length * conversions[(unit1, unit2)]
+  else:
+    print("Sorry, that conversion isn't supported yet.")
+    return
+
+  
+  #tell user result
+  print(f'{length} {unit1} is {round(converted_length, 2)} {unit2}')
+    
+  
+while True:
+  unit_converter()
+  again = input("Do you want to convert another? (yes/no): ").strip().lower()
+  if again != 'yes':
+    break
