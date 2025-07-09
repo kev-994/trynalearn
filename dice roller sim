@@ -1,0 +1,25 @@
+#need randomness to represent rolling dice
+import random
+
+def dice_roller_sim():
+  #tell user what to do 
+  print("Type 'roll' to roll dice and 'stop' to stop rolling")
+  #dice rolling
+  roll_count = 0
+  roll_history = []
+  while True:
+    roll = input(">").lower().strip()
+    if roll == 'roll':
+      roll_count += 1
+      num = random.randint(1, 6)
+      roll_history.append(num)
+      print(num)
+    elif roll == 'stop':
+      break
+    else:
+      print('Try that again')
+  #show results
+  print(f'You rolled {roll_count} time(s)')
+  print(f'Your rolls: {roll_history}')
+
+dice_roller_sim()
