@@ -1,0 +1,98 @@
+def what_grade():
+  print('Please enter your scores as their percentage')
+  #ask user for paper 1 score
+  while True: 
+    paper1 = input('What score did you get in physics paper 1? ')
+    try:
+      paper1 = float(paper1)
+      if 0 <= paper1 <= 100:
+        break
+      else:
+        print('Thats not a number between 0 and 100')
+    except:
+      print('Thats not a number between 0 and 100')
+  #ask user for paper 2 score
+  while True: 
+    paper2 = input('What score did you get in physics paper 2? ')
+    try:
+      paper2 = float(paper2)
+      if 0 <= paper2 <= 100:
+        break
+      else:
+        print('Thats not a number between 0 and 100')
+    except:
+      print('Thats not a number between 0 and 100')
+  #ask user for paper 3 score
+  while True: 
+    paper3 = input('What score did you get in physics paper 3? ')
+    try:
+      paper3 = float(paper3)
+      if 0 <= paper3 <= 100:
+        break
+      else:
+        print('Thats not a number between 0 and 100')
+    except:
+      print('Thats not a number between 0 and 100')      
+  #choose highest score
+  if paper1 > paper2 and paper1 > paper3:
+    highest_score = paper1
+  elif paper2 > paper1 and paper2 > paper3:
+    highest_score = paper2
+  elif paper3 > paper1 and paper3 > paper2:
+    highest_score = paper3
+  elif paper1 == paper2 and paper1 > paper3:
+    highest_score = paper1
+  elif paper1 == paper3 and paper1 > paper2:
+      highest_score = paper1
+  elif paper2 == paper3 and paper2 > paper1:
+    highest_score = paper2
+  else:
+    highest_score = paper1
+    
+  #choose lowest score
+  if paper1 < paper2 and paper1 < paper3:
+    lowest_score = paper1
+  elif paper2 < paper1 and paper2 < paper3:
+    lowest_score = paper2
+  elif paper3 < paper1 and paper3 < paper2:
+    lowest_score = paper3
+  elif paper1 == paper2 and paper1 < paper3:
+    lowest_score = paper1
+  elif paper1 == paper3 and paper1 < paper2:
+      lowest_score = paper1
+  elif paper2 == paper3 and paper2 < paper1:
+    lowest_score = paper2
+  else:
+    lowest_score = paper1
+  
+  #find average score
+  total = paper1 + paper2 + paper3
+  average = round(total / 3)
+  
+  #find grade
+  if average >= 73:
+    grade = 'A*'
+  elif 52 <= average < 73:
+    grade = 'A'
+  elif 41 <= average < 52:
+    grade = 'B'
+  elif 34 <= average < 41:
+    grade = 'C'
+  elif 27 <= average < 34:
+    grade = 'D'
+  elif 19 <= average < 27:
+    grade = 'E'
+  else:
+    grade = 'U'
+  
+  #tell user highest lowest and average score
+  print(f'Highest score: {round(highest_score)}')
+  print(f'Lowest score: {round(lowest_score)}')
+  print(f'Average score: {average}')
+  print(f'Grade: {grade}')
+  
+what_grade()
+
+#ive used repeated code, i couldve made a function that gets the score for each paper
+  
+    
